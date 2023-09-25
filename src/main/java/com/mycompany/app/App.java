@@ -7,6 +7,8 @@ package com.mycompany.app;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Jogo 21 no workspace para teste");
+        Carta carta = new Carta();
+        String naipe = carta.setNaipe("copas");
+        System.out.println("Naipe: "+naipe);
     }
 }
