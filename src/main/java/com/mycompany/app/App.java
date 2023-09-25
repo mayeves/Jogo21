@@ -13,7 +13,7 @@ public class App {
 
         switch (CartaEnum.valueOf(carta.getNome())){
             case AS:
-                System.out.println("Valor Carta: "+CartaEnum.AS.getValor);
+                System.out.println("Valor Carta: "+CartaEnum.AS.getValor());
         }
         
     }
