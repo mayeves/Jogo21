@@ -7,6 +7,6 @@ package com.mycompany.app;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Jogo 21 no workspace");
+        System.out.println("Jogo 21 no workspace para teste");
     }
 }
