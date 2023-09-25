@@ -6,19 +6,19 @@ public class Carta {
     public String getNaipe(){
         return naipe;
     }
-    public void setNaipe(String naipe){
+    public String setNaipe(String naipe){
         this.naipe = naipe;
     }
     public String getNome(){
         return nome;
     }
-    public void setNome(String nome){
+    public String setNome(String nome){
         this.nome = nome;
     }
     public Integer getValor(){
         return valor;
     }
-    public void setNaipe(Integer valor){
+    public Integer setNaipe(Integer valor){
         this.valor = valor;
     }
 }
