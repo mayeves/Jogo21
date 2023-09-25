@@ -8,7 +8,7 @@ package com.mycompany.app;
 public class App {
     public static void main(String[] args) {
         Carta carta = new Carta();
-        String naipe = carta.setNaipe("copas");
-        System.out.println("Naipe: "+naipe);
+        carta.setNaipe("copas");
+        System.out.println("Naipe: "+carta.naipe);
     }
 }

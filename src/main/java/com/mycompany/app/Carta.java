@@ -1,3 +1,5 @@
+package com.mycompany.app;
+
 public class Carta {
     String naipe;
     String nome;
@@ -6,19 +8,19 @@ public class Carta {
     public String getNaipe(){
         return naipe;
     }
-    public String setNaipe(String naipe){
+    public void setNaipe(String naipe){
         this.naipe = naipe;
     }
     public String getNome(){
         return nome;
     }
-    public String setNome(String nome){
+    public void setNome(String nome){
         this.nome = nome;
     }
     public Integer getValor(){
         return valor;
     }
-    public Integer setNaipe(Integer valor){
+    public void setNaipe(Integer valor){
         this.valor = valor;
     }
 }
