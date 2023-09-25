@@ -8,7 +8,13 @@ package com.mycompany.app;
 public class App {
     public static void main(String[] args) {
         Carta carta = new Carta();
+        carta.setNome("AS");
         carta.setNaipe("copas");
-        System.out.println("Naipe: "+carta.naipe);
+
+        switch (CartaEnum.valueOf(carta.getNome())){
+            case AS:
+                System.out.println("Valor Carta: "+CartaEnum.AS.getValor);
+        }
+        
     }
 }

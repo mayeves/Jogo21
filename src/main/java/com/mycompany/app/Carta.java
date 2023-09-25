@@ -20,7 +20,20 @@ public class Carta {
     public Integer getValor(){
         return valor;
     }
-    public void setNaipe(Integer valor){
+    public void setValor (Integer valor){
         this.valor = valor;
     }
+
+    
+   public Integer CartaEnum (String nome){
+        switch (nome){
+            case "AS":
+                return 1;
+            case "DOIS":
+                return 2;
+            default:
+                return 0;
+        }
+    }
 }
+  
