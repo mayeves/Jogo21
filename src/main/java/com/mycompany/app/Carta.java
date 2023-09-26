@@ -3,7 +3,7 @@ package com.mycompany.app;
 public class Carta {
     String naipe;
     String nome;
-    Integer valor;
+    int valor;
 
     public String getNaipe(){
         return naipe;
@@ -17,23 +17,16 @@ public class Carta {
     public void setNome(String nome){
         this.nome = nome;
     }
-    public Integer getValor(){
+      public int getvalor(){
         return valor;
     }
-    public void setValor (Integer valor){
+    public void setValor(int valor){
         this.valor = valor;
     }
-
-    
-   public Integer CartaEnum (String nome){
-        switch (nome){
-            case "AS":
-                return 1;
-            case "DOIS":
-                return 2;
-            default:
-                return 0;
-        }
+    public void setCarta(String nome, String naipe, int valor){
+        this.naipe = naipe;
+        this.nome = nome;
+        this.valor = valor;
     }
-}
+  }
   
