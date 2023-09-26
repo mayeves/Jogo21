@@ -5,12 +5,11 @@
             "name": "Launch App",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
+            "console": "externalTerminal",
             "stopOnEntry": false,
             "mainClass": "com.mycompany.app.App",
             "args": "",
-            "projectName": "my-app",
-            "externalConsole":true
+            "projectName": "my-app"            
         }
     ]
 }
