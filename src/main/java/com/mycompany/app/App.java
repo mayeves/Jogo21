@@ -14,21 +14,30 @@ public class App {
     static int totalPontos = 0;
     public static void main(String[] args) throws Exception{
         int jogadores = 0;
+        String desejaIniciar;
+        String iniciar;
 
         //System.out.println("Informe a quantidade de jogadores");
         //jogadores = in.nextInt();
 
-        baralho.criarBaralho();        
-        primeiraMao();
-        jogadasAdicionais();    
+        baralho.criarBaralho();
+        baralho.embaralhar();
+        System.out.println("Deseja iniciar o jogo? Digite 's' e tecle Enter");
+        desejaIniciar = in.nextLine(); 
+        if(desejaIniciar.equals("s")){
+            primeiraMao();
+            jogadasAdicionais();
+        }     
+        
+            
     }
 
     static void primeiraMao(){
-        for (int i=0; i<1; i++){
+        for (int i=0; i<2; i++){
             Carta cartaSorteada = new Carta();
             cartaSorteada = baralho.sortearCarta();
             totalPontos = totalPontos + cartaSorteada.valor;
-            System.out.println("A carta sorteada é a: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());
+            System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());
             System.out.println("Seu total é de "+totalPontos+" pontos até o momento!");
 
         }
@@ -39,22 +48,28 @@ public class App {
         String continuar = "N";
         int totalCartas;
 
-        System.out.println("Informe se deseja solicitar outra carta: ");
+        System.out.println("Informe 'S' se deseja solicitar outra carta: ");
         continuar = in.nextLine();
 
-        do {
+        while (continuar.equals("S") || continuar.equals("s")){
             totalCartas = Baralho.baralho.size();
             Carta cartaSorteada = new Carta();
             cartaSorteada = baralho.sortearCarta();
             totalPontos = totalPontos + cartaSorteada.valor;
-            System.out.println("A carta sorteada é a: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());
+            System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());
             System.out.println("Seu total é de "+totalPontos+" pontos até o momento!");
-            System.out.println("Informe se deseja solicitar outra carta: ");
-            continuar = in.nextLine();
+            if (totalPontos > 21){
+                continuar = "N";
+                System.out.println("Não foi dessa vez, tente novamente quando estiver com mais sorte!");
+            } else {
+                System.out.println("Informe 'S' se deseja solicitar outra carta: ");
+                continuar = in.nextLine();
+            }
+        }
 
-        } while (continuar.equals("S") || continuar.equals("s"));
+         
 
-        System.out.println("Final do jogo com o total de "+totalPontos);
+        System.out.println("Final do jogo com o total de "+totalPontos+" pontos.");
 
 
         
