@@ -7,23 +7,20 @@ package com.mycompany.app;
 
 import java.util.Scanner;
 
+
 public class App {
     private static Scanner in = new Scanner(System.in);
     static Baralho baralho = new Baralho();
     static int totalPontos = 0;
     public static void main(String[] args) throws Exception{
-        int jogadores = 1;
+        int jogadores = 0;
 
-        System.out.println("Informe a quantidade de jogadores");
-        jogadores = in.nextInt();
+        //System.out.println("Informe a quantidade de jogadores");
+        //jogadores = in.nextInt();
 
-        baralho.criarBaralho();
-        
+        baralho.criarBaralho();        
         primeiraMao();
-        jogadasAdicionais();
-
-        
-        
+        jogadasAdicionais();    
     }
 
     static void primeiraMao(){
@@ -37,9 +34,7 @@ public class App {
         }
     }
 
-     /**
-     * @throws Exception
-     */
+     
     static void jogadasAdicionais() throws Exception{
         String continuar = "N";
         int totalCartas;

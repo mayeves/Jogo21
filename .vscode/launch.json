@@ -9,7 +9,8 @@
             "stopOnEntry": false,
             "mainClass": "com.mycompany.app.App",
             "args": "",
-            "projectName": "my-app"
+            "projectName": "my-app",
+            "externalConsole":true
         }
     ]
 }
