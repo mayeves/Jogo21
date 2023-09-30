@@ -65,7 +65,7 @@ public class Baralho {
         Random random = new Random();
         Carta carta = new Carta();
         if(baralho.size() < 1){
-            System.out.println("O baralho terminou");
+            System.out.println("O baralho terminou!!! \n");
             return null;
         }
         int indice = random.nextInt(baralho.size());
