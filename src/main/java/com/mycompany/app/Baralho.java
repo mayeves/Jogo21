@@ -71,11 +71,7 @@ public class Baralho {
         int indice = random.nextInt(baralho.size());
         carta = baralho.get(indice);
         baralho.remove(indice);
-       /*  for (int i=0; i<baralho.size(); i++){
-            Carta cartaIndice = new Carta();
-            cartaIndice = baralho.get(i);
-            System.out.println("Carta apos remover: "+cartaIndice.getNome()+" de "+cartaIndice.getNaipe());
-        }  */ 
+       
         return carta;
 
     }
