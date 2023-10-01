@@ -1,7 +1,3 @@
-/*----------------------------------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See LICENSE in the project root for license information.
- *---------------------------------------------------------------------------------------*/
 
 package com.mycompany.app;
 
@@ -21,11 +17,16 @@ public class App {
     public static void main(String[] args) throws Exception{               
         int menu;
         int quantidadeJogadores;
-        jogador ="";        
+        jogador = "";        
         
         System.out.printf("Informe a quantidade de jogadores. Somente 1 ou 2 jogadores: ");
         quantidadeJogadores = in.nextInt();
         in.nextLine(); 
+        while (quantidadeJogadores > 2){
+        System.out.printf("Informe a quantidade de jogadores. Somente 1 ou 2 jogadores: ");
+           quantidadeJogadores = in.nextInt();
+            in.nextLine();  
+        }
         for (int i=0; i<quantidadeJogadores;i++){
             Jogador jogadorClasse = new Jogador();
             System.out.printf("Informe o nome do jogador "+(i+1)+": ");
@@ -87,9 +88,10 @@ public class App {
         for (int i=0; i<2; i++){
             Carta cartaSorteada = new Carta();
             cartaSorteada = baralho.sortearCarta();
-            jogadores.get(jogador).setTotalPontos(pontosAcumulados(cartaSorteada.valor));
-            
-            System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());            
+            if(cartaSorteada != null){
+                jogadores.get(jogador).setTotalPontos(pontosAcumulados(cartaSorteada.valor));            
+                System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe());
+            }            
         }
         System.out.println("");
         System.out.println(jogadores.get(jogador).getNome()+", seu total é de "+jogadores.get(jogador).getTotalPontos()+" pontos até o momento!\n");
@@ -118,24 +120,26 @@ public class App {
             numeroJogada++;
             Carta cartaSorteada = new Carta();
             cartaSorteada = baralho.sortearCarta();
-            jogadores.get(jogador).setTotalPontos(pontosAcumulados(cartaSorteada.valor));
-            System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe()+"\n");
-            System.out.println(jogadores.get(jogador).getNome()+", seu total é de "+jogadores.get(jogador).getTotalPontos()+" pontos até o momento!\n");
-            
-            vinteUm = estourouPontos(jogadores.get(jogador).getTotalPontos());
-            if (vinteUm.equals("Acima")){
-                continuar = "N";
-                System.out.println("Não foi dessa vez "+jogadores.get(jogador).getNome()+", tente novamente quando estiver com mais sorte!");
-            } else if (vinteUm.equals("Igual")){
-                continuar = "N";
-                System.out.println(jogadores.get(jogador).getNome()+" você está com sorte, atingiu 21 pontos!");
-            } else if (vinteUm.equals("Abaixo")) {
-                System.out.printf("Informe 's' se deseja solicitar outra carta ou 'n' se deseja parar: ");
-                continuar = in.nextLine();
+            if(cartaSorteada != null){
+                jogadores.get(jogador).setTotalPontos(pontosAcumulados(cartaSorteada.valor));
+                System.out.println("A carta sorteada é: "+cartaSorteada.nome+" de "+cartaSorteada.getNaipe()+"\n");
+                System.out.println(jogadores.get(jogador).getNome()+", seu total é de "+jogadores.get(jogador).getTotalPontos()+" pontos até o momento!\n");
+                
+                vinteUm = estourouPontos(jogadores.get(jogador).getTotalPontos());
+                if (vinteUm.equals("Acima")){
+                    continuar = "N";
+                    System.out.println("Não foi dessa vez "+jogadores.get(jogador).getNome()+", tente novamente quando estiver com mais sorte!");
+                } else if (vinteUm.equals("Igual")){
+                    continuar = "N";
+                    System.out.println(jogadores.get(jogador).getNome()+" você está com sorte, atingiu 21 pontos!");
+                } else if (vinteUm.equals("Abaixo")) {
+                    System.out.printf("Informe 's' se deseja solicitar outra carta ou 'n' se deseja parar: ");
+                    continuar = in.nextLine();
+                }
             }
         }        
         System.out.println("Final da rodada com o total de "+jogadores.get(jogador).getTotalPontos()+" pontos.\n");
-        if (jogador == jogadores.size()-1){
+        if (jogador > 0 && jogador == jogadores.size()-1){
             
             if((jogadores.get(0).getTotalPontos() > 21 && jogadores.get(1).getTotalPontos() > 21) ||
                 (jogadores.get(0).getTotalPontos() == jogadores.get(1).getTotalPontos())){
